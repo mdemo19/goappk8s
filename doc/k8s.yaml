@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: goappk8s
+  labels:
+    app: goappk8s
+spec:
+  ports:
+    - port: 8080
+  selector:
+    app: goappk8s
+    tier: frontend
+  type: LoadBalancer
+---
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: goappk8s
+  labels:
+    app: goappk8s
+spec:
+  selector:
+    matchLabels:
+      app: goappk8s
+      tier: frontend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: goappk8s
+        tier: frontend
+    spec:
+      containers:
+      - image: liam1803/mb-gotest:0.0.4
+        name: goappk8s
+        ports:
+        - containerPort: 8080
+          name: goappk8s
