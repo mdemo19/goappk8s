@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: wzlinux-ingress
+spec:
+  tls:
+  - hosts:
+    - www.wzlinux.com
+    secretName: wzlinux-secret
+  rules:
+  - host: www.wzlinux.com
+    http:
+      paths:
+      - path:
+        backend:
+          serviceName: wzlinux-svc
+          servicePort: 80
+  - host: wzlinux.com
+    http:
+      paths:
+      - path:
+        backend:
+          serviceName: wzlinux-svc
+          servicePort: 80

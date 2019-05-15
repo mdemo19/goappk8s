@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: wzlinux-dep
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        run: wzlinux
+    spec:
+      containers:
+      - name: wzlinux
+        image: wangzan18/mytest:v1
+        ports:
+        - containerPort: 8080
