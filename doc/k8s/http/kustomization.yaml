@@ -1,0 +1,9 @@
+secretGenerator:
+- name: mysql-pass
+  literals:
+  - password=123456
+
+resources:
+  - wzlinux-deploy.yaml
+  - wzlinux-svc.yaml
+  - wzlinux-ingress.yaml

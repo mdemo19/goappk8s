@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo1-svc
+  labels:
+    app: demoa
+spec:
+  ports:
+    - port: 8080
+  selector:
+    app: demoa
+    tier: backend
+  type: LoadBalancer
+---
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: demo1-dep
+  labels:
+    app: demoa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demoa
+      tier: backend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: demoa
+        tier: backend
+    spec:
+      containers:
+      - image: liam1803/mb-gotest:0.0.5
+        name: demoa
+        env:
+        - name: SERVER_DB_HOST
+          valueFrom:
+            secretKeyRef:
+              name: mysql-pass
+              key: password
+        ports:
+        - containerPort: 8080
+          name: demoa
+
+
