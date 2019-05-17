@@ -37,7 +37,7 @@ spec:
         name: demob
         env:
         - name: SERVER_DB_HOST
-          value: demo1-svc
+          value: demo1-dep
         ports:
         - containerPort: 8080
           name: demob

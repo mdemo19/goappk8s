@@ -1,0 +1,3 @@
+resources:
+  - master-deployment.yaml
+  - save-deployment.yaml

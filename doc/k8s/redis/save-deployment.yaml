@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: ku8-redis-slave
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: ku8-redis-slave
+    spec:
+      containers:
+        - name: server
+          image: devopsbq/redis-slave
+          env:
+            - name: MASTER_ADDR
+              value: ku8-redis-master
+          ports:
+            - containerPort: 6379
