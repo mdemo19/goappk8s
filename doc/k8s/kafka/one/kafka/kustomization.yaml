@@ -1,0 +1,4 @@
+
+resources:
+  - kafka-svc.yaml
+  - kafka-deployment.yaml

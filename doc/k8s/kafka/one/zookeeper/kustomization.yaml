@@ -1,0 +1,4 @@
+
+resources:
+  - zookeeper-svc.yaml
+  - zookeeper-deployment.yaml
