@@ -6,4 +6,4 @@ secretGenerator:
 resources:
   - wzlinux-deploy.yaml
   - wzlinux-svc.yaml
-  - wzlinux-ingress.yaml
+  - wzlinux-ingress.1.yaml

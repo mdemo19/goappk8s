@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: mygs-ingress
+spec:
+  rules:
+  - host: bookinfo.k8s.mygs.com
+    http:
+      paths:
+      - path: 
+        backend:
+          serviceName: productpage
+          servicePort: 80
+          

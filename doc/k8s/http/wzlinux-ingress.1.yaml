@@ -4,7 +4,7 @@ metadata:
   name: wzlinux-ingress
 spec:
   rules:
-  - host: www.wzlinux.com
+  - host: www1.wzlinux.com
     http:
       paths:
       - path:
