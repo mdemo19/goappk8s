@@ -12,3 +12,4 @@ spec:
           serviceName: productpage
           servicePort: 9080
           
+# http://bookinfo.k8s.mygs.com/productpage
